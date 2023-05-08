@@ -12,7 +12,9 @@
     "format": "prettier --write src/"
   },
   "dependencies": {
+    "@types/wavesurfer.js": "^6.0.5",
     "pinia": "^2.0.35",
+    "remove": "^0.1.5",
     "vue": "^3.2.47",
     "vue-router": "^4.1.6"
   },
