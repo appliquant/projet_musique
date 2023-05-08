@@ -1,10 +1,10 @@
 <script setup lang="ts">
-import { onMounted, ref } from 'vue'
+import { onMounted, ref, onUpdated } from 'vue'
 const props = defineProps<{
   /**
-   * Chemin vers le fichier audio
+   * Objet contenant l'id du son et le chemin vers le son
    */
-  pathToAudio: string
+  sound: { id: number; soundPath: string; title: string; author: string }
 }>()
 
 import WaveSurfer from 'wavesurfer.js'
@@ -14,6 +14,10 @@ import IconStop from '@/components/icons/IconStop.vue'
 
 // Instance wavesurfer
 let wavesurfer: WaveSurfer | null = null
+
+// Id du waveform dépendant de l'id du son (unique pour chaque composant)
+// Car si on a plusieurs composants, il faut que chaque waveform ait un id unique
+const waveformId = `waveform-${props.sound.id}`
 
 // Variables
 const isPlaying = ref(false)
@@ -56,12 +60,12 @@ const handlePlayingAudio = () => {
 onMounted(() => {
   // Initialiser wavesurfer
   wavesurfer = WaveSurfer.create({
-    container: '#waveform',
+    container: '#' + waveformId,
     scrollParent: false
   })
 
   // Charger le son
-  const audio = new Audio(props.pathToAudio)
+  const audio = new Audio(props.sound.soundPath)
 
   // Charger le son dans wavesurfer
   wavesurfer.load(audio)
@@ -82,11 +86,11 @@ onMounted(() => {
         <IconStop v-if="isPlaying" class="icon" @click="handlePlayingAudio" />
       </div>
       <div>
-        <h1>Création #1</h1>
-        <p class="music-card__author">bob dyx ● {{ duration }}s</p>
+        <h1>{{ props.sound.title }}</h1>
+        <p class="music-card__author">{{ props.sound.author }} ● {{ duration }}s</p>
       </div>
     </div>
-    <div id="waveform"></div>
+    <div :id="waveformId"></div>
   </div>
 </template>
 
@@ -95,6 +99,7 @@ onMounted(() => {
   border: 0.03em solid var(--tertiary-color);
   border-radius: 0.5em;
   padding: 1em;
+  margin-bottom: 2em;
 }
 
 .music-card__header {
