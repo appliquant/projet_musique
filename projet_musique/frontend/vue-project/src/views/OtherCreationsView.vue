@@ -1,6 +1,9 @@
 <script setup lang="ts">
+import { RouterLink } from 'vue-router'
+
 import SoundCard from '@/components/MusicCard.vue'
 
+import IconArrowLeft from '@/components/icons/IconArrowLeft.vue'
 import sound1 from '../assets/audio/sound1.wav'
 import sound2 from '../assets/audio/sound2.wav'
 import sound3 from '../assets/audio/sound3.wav'
@@ -18,7 +21,12 @@ const sounds = [
 
 <template>
   <main>
-    <h1>Créations des autres utilisateurs</h1>
+    <div class="header-section">
+      <RouterLink to="/dashboard">
+        <IconArrowLeft class="icon icon--arrow" />
+      </RouterLink>
+      <h1>Créations des autres utilisateurs</h1>
+    </div>
 
     <!-- <SoundCard v-for="sound in sounds" :key="sound.id" :path-to-audio="sound.soundPath" /> -->
     <SoundCard v-for="sound in sounds" :key="sound.id" :sound="sound" />
@@ -31,7 +39,17 @@ main {
   margin: 5em;
 }
 
-main > h1 {
+.header-section {
+  display: flex;
+  align-items: center;
   margin-bottom: 2em;
+}
+
+.header-section h1 {
+  margin-left: 1em;
+}
+
+.icon--arrow {
+  color: white;
 }
 </style>
