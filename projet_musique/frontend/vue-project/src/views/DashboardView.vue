@@ -1,14 +1,22 @@
+<script setup lang="ts">
+import { RouterLink, useRouter } from 'vue-router'
+</script>
+
 <template>
   <div class="container">
     <div class="left-side">
-      <button class="button--primary">
-        <h1>Voir autres créations</h1>
-      </button>
+      <RouterLink to="/other-creations">
+        <button class="button--primary">
+          <h1>Voir autres créations</h1>
+        </button>
+      </RouterLink>
     </div>
     <div class="right-side">
-      <button class="button--secondary">
-        <h1>Envoyer</h1>
-      </button>
+      <RouterLink to="/send">
+        <button class="button--secondary">
+          <h1>Envoyer</h1>
+        </button>
+      </RouterLink>
     </div>
   </div>
 </template>

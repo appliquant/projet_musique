@@ -6,13 +6,24 @@ const router = createRouter({
     {
       path: '/start',
       name: 'start',
-      component: () => import("../views/StartView.vue")
+      component: () => import('../views/StartView.vue')
     },
     {
       path: '/dashboard',
       name: 'dashboard',
-      component: () => import("../views/DashboardView.vue")
+      component: () => import('../views/DashboardView.vue')
+    },
+    {
+      path: '/other-creations',
+      name: 'other-creations',
+      component: () => import('../views/OtherCreationsView.vue')
+    },
+    {
+      path: '/send',
+      name: 'send',
+      component: () => import('../views/SendView.vue')
     }
-  ]})
+  ]
+})
 
 export default router

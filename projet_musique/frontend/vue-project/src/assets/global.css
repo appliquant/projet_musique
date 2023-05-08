@@ -49,7 +49,7 @@ button.button--primary {
 }
 
 button.button--secondary {
-  color: var(--color-white);
+  color: var(--tertiary-color);
   border: none;
   background-color: var(--primary-color);
   border-radius: 8px;
