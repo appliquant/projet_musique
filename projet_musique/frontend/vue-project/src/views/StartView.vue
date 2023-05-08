@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import IconStar from '../components/icons/IconStar.vue'
-import { RouterLink, RouterView, useRouter } from 'vue-router'
+import { RouterLink, useRouter } from 'vue-router'
 
 const router = useRouter()
 
