@@ -82,17 +82,24 @@ def export_sound_to_sonicpi():
     """
     Exporte les sons vers Sonic Pi
     """
-    sounds_with_notes = {
-        "rouge": "c",
-        "jaune": "d",
-        "vert": "e"
-    }
+    sounds_to_play = []
 
-    for sound, note in sounds_with_notes.items():
-        print(f"{sound} = :{note}")
-        # sound_red.export(f"rouge.wav", format="wav")
-        # sound_yellow.export(f"jaune.wav", format="wav")
-        # sound_green.export(f"vert.wav", format="wav")
+    # Trouver quels leds sont allumées
+    if led_red.value == 1:
+        sounds_to_play.append("red")
+
+    if led_yellow.value == 1:
+        sounds_to_play.append("yellow")
+
+    if led_green.value == 1:
+        sounds_to_play.append("green")
+
+    # Jouer les sons
+    for sound in sounds_to_play:
+        print(sound)
+        # Jouer le son dans Sonic Pi
+        # run("play :{0}".format(sound))
+
 
 # Boucle infinie pour jouer les sons
 while True:
