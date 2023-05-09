@@ -82,9 +82,9 @@ button_yellow.when_pressed = toggle_yellow
 button_green.when_pressed = toggle_green
 
 
-def export_sound_to_sonicpi():
+def export_sound():
     """
-    Exporte les sons vers Sonic Pi
+    Exporte les sons avec pydub (à tester)
     """
     # nb_sounds_to_play = 0
 
