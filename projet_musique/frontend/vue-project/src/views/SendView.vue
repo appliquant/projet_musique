@@ -38,9 +38,7 @@ import IconArrowLeft from '@/components/icons/IconArrowLeft.vue'
       </form>
     </div>
 
-    <div class="right-side">
-      <div>h1h1</div>
-    </div>
+    <div class="right-side"></div>
   </main>
 </template>
 
