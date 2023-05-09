@@ -1,6 +1,10 @@
+"""
+Jouer sons avec boutons et LEDs
+"""
 from time import sleep
 import pygame
 from gpiozero import LED, Button, MCP3008
+# from pydub import AudioSegment
 
 # LEDs et boutons
 led_red = LED(17)         # gpio17
@@ -82,23 +86,30 @@ def export_sound_to_sonicpi():
     """
     Exporte les sons vers Sonic Pi
     """
-    sounds_to_play = []
+    # nb_sounds_to_play = 0
 
     # Trouver quels leds sont allumées
-    if led_red.value == 1:
-        sounds_to_play.append("red")
+    # if led_red.value == 1:
+    #     nb_sounds_to_play += 1
 
-    if led_yellow.value == 1:
-        sounds_to_play.append("yellow")
+    # if led_yellow.value == 1:
+    #     nb_sounds_to_play += 1
 
-    if led_green.value == 1:
-        sounds_to_play.append("green")
+    # if led_green.value == 1:
+    #     nb_sounds_to_play += 1
 
-    # Jouer les sons
-    for sound in sounds_to_play:
-        print(sound)
-        # Jouer le son dans Sonic Pi
-        # run("play :{0}".format(sound))
+    # Loader sons avec pydub
+    # sound = AudioSegment.from_wav("kick2.wav")
+    # delay = AudioSegment.silent(duration=get_potentiometer_value() * 1000)
+
+    # sound = None
+    # Combiner les sons avec un delay
+    # for i in range(nb_sounds_to_play):
+    # sound += sound + delay
+
+    # Exporter le son
+    # combined.export("output.wav", format="wav")
+    return True
 
 
 # Boucle infinie pour jouer les sons
